@@ -36,5 +36,47 @@ public class Pizza {
         this.name = name;
         this.description = description;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Ingredient[] getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Ingredient[] ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public int getNumberOfIngredients() {
+        return numberOfIngredients;
+    }
+
+    public void setNumberOfIngredients(int numberOfIngredients) {
+        this.numberOfIngredients = numberOfIngredients;
+    }
+    
+    
     
 }

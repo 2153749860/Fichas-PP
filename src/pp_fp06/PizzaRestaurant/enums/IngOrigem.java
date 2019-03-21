@@ -10,5 +10,5 @@ package pp_fp06.PizzaRestaurant.enums;
  * @author tiago
  */
 public enum IngOrigem {
-    
+    Animal, Vegetal, Mineral;
 }

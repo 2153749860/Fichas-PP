@@ -1,6 +1,7 @@
 package pp_fp06.PizzaRestaurant;
 
-import pp_fp06.PizzaRestaurant.enums.PizzaSize;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 /**
  * <h3>
@@ -35,6 +36,7 @@ public class Pizza {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.ingredients = new Ingredient[MAX_INGREDIENTS];
     }
 
     public int getId() {
@@ -53,10 +55,10 @@ public class Pizza {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public void getDescription() {
+        System.out.println("A pizza " + this.getName() + " possui " + this.getNumberOfIngredients() + " ingredientes:" + Arrays.toString(this.ingredients));
     }
-
+    
     public void setDescription(String description) {
         this.description = description;
     }
@@ -67,6 +69,7 @@ public class Pizza {
 
     public void setIngredients(Ingredient[] ingredients) {
         this.ingredients = ingredients;
+        this.numberOfIngredients = this.ingredients.length;
     }
 
     public int getNumberOfIngredients() {
@@ -75,6 +78,11 @@ public class Pizza {
 
     public void setNumberOfIngredients(int numberOfIngredients) {
         this.numberOfIngredients = numberOfIngredients;
+    }
+
+    @Override
+    public String toString() {
+        return "Pizza{" + "MAX_INGREDIENTS=" + MAX_INGREDIENTS + ", id=" + id + ", name=" + name + ", description=" + description + ", ingredients=" + Arrays.toString(ingredients) + ", numberOfIngredients=" + numberOfIngredients + '}';
     }
     
     

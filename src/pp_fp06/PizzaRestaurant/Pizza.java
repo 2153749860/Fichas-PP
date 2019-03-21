@@ -55,8 +55,9 @@ public class Pizza {
         this.name = name;
     }
 
-    public void getDescription() {
-        System.out.println("A pizza " + this.getName() + " possui " + this.getNumberOfIngredients() + " ingredientes:" + Arrays.toString(this.ingredients));
+    public String getDescription() {
+        //System.out.println("A pizza " + this.getName() + " possui " + this.getNumberOfIngredients() + " ingredientes:" + Arrays.toString(this.ingredients));
+        return("A pizza " + this.getName() + " possui " + this.getNumberOfIngredients() + " ingredientes:" + Arrays.toString(this.ingredients));
     }
     
     public void setDescription(String description) {

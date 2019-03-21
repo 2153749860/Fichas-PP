@@ -18,19 +18,23 @@ public class PizzaDemo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //instancia dos ingredientes
         Ingredient ingrediente1 = new Ingredient(1, "Massa", IngOrigem.Vegetal);
         Ingredient ingrediente2 = new Ingredient(2, "Tomate", IngOrigem.Vegetal);
         Ingredient ingrediente3 = new Ingredient(3, "Queijo", IngOrigem.Animal);
-        
+        //vetor de ingredientes
         Ingredient[] ingredientes1 = new Ingredient[]{ingrediente1, ingrediente2, ingrediente3};
         
+        //pizza 1
         Pizza pizza1 = new Pizza(1, "Celeste", "Boa!");
         pizza1.setIngredients(ingredientes1);
         pizza1.getDescription();
         
+        //pizza 2
         Pizza pizza2 = new Pizza(2, "Ananás", "Muito boa!");
         pizza2.setIngredients(ingredientes1);
-        pizza2.getDescription();
+        //pizza2.getDescription();
+        System.out.println(pizza2.getDescription());
     }
     
 }

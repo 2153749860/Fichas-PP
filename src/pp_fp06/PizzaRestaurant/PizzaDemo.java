@@ -27,13 +27,14 @@ public class PizzaDemo {
         
         //pizza 1
         Pizza pizza1 = new Pizza(1, "Celeste", "Boa!");
-        pizza1.setIngredients(ingredientes1);
-        pizza1.getDescription();
+        pizza1.addIngredinte(ingrediente2);
+        pizza1.addIngredinte(ingrediente3);
+        pizza1.removeIngrediente(2);
+        System.out.println(pizza1.getDescription());
         
         //pizza 2
         Pizza pizza2 = new Pizza(2, "Ananás", "Muito boa!");
-        pizza2.setIngredients(ingredientes1);
-        //pizza2.getDescription();
+        pizza2.addIngredinte(ingrediente1);
         System.out.println(pizza2.getDescription());
     }
     

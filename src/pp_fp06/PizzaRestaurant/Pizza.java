@@ -80,6 +80,30 @@ public class Pizza {
     public void setNumberOfIngredients(int numberOfIngredients) {
         this.numberOfIngredients = numberOfIngredients;
     }
+    
+    public void addIngredinte(Ingredient ingrediente){
+        if(numberOfIngredients < MAX_INGREDIENTS){
+            this.ingredients[numberOfIngredients] = ingrediente;
+            numberOfIngredients++;
+        }
+        else{
+            System.out.println("Ta cheia gordo!");
+        }
+    }
+    
+    public void removeIngrediente(int id){
+        int posicao = -1;
+        for(int i=0; i<this.numberOfIngredients; i++){
+            if(this.ingredients[i].getCodigo() == id){
+                posicao = i;
+            }
+        }
+        for(int j=posicao; j<this.numberOfIngredients; j++){
+            this.ingredients[j] = this.ingredients[j+1];
+        }
+        this.ingredients[numberOfIngredients] = null;
+        numberOfIngredients--;
+    }
 
     @Override
     public String toString() {

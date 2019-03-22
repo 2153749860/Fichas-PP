@@ -12,13 +12,21 @@ import pp_fp06.PizzaRestaurant.enums.IngOrigem;
  * @author tiago
  */
 public class Ingredient {
+    /**
+     * codigo - codigo do ingrediente
+     * nome - nome do ingrediente
+     * origem - origem do ingrediente
+     */
     private int codigo;
     private String nome;
     private IngOrigem origem;
-
-    public Ingredient() {
-    }
     
+    /**
+     * Construtor
+     * @param codigo - codigo do ingrediente
+     * @param nome - nome do ingrediente
+     * @param origem - origem do ingrediente
+     */
     public Ingredient(int codigo, String nome, IngOrigem origem) {
         this.codigo = codigo;
         this.nome = nome;
@@ -48,7 +56,11 @@ public class Ingredient {
     public void setOrigem(IngOrigem origem) {
         this.origem = origem;
     }
-
+    
+    /**
+     * metodo toString() vai imprimir todos os dados do ingrediente na tela
+     * @return uma string com todas as informações do ingrediente
+     */
     @Override
     public String toString() {
         return "Ingredient{" + "codigo=" + codigo + ", nome=" + nome + ", origem=" + origem + '}';

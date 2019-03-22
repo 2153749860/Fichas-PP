@@ -90,16 +90,19 @@ public class Ementa {
         }
     }
     
-    
-    
-    
     public void removePizza(int id){
         int pos = -1;
+        for(int i=0; i<this.numberOfPizzas; i++){
+            if(this.pizzas[i].getId() == id){
+                pos = i;
+            }
+        }
+        for(int j=pos; j<this.numberOfPizzas; j++){
+            this.pizzas[j] = this.pizzas[j+1];
+        }
+        this.pizzas[this.numberOfPizzas] = null;
+        this.numberOfPizzas--;
     }
-    
-    
-    
-    
     
     @Override
     public String toString() {

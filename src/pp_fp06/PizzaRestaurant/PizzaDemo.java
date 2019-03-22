@@ -48,8 +48,9 @@ public class PizzaDemo {
         ementa1.addPizza(pizza2);
         ementa1.validaEmenta();
         System.out.println(ementa1.isValida());
-        //System.out.println("+++++++++++");
-        //System.out.println(ementa1.toString());
+        //ementa1.removePizza(2);
+        System.out.println("+++++++++++");
+        System.out.println(ementa1.toString());
         //System.out.println(ementa1.toString());
     }
     

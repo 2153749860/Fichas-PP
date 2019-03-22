@@ -56,7 +56,6 @@ public class Pizza {
     }
 
     public String getDescription() {
-        //System.out.println("A pizza " + this.getName() + " possui " + this.getNumberOfIngredients() + " ingredientes:" + Arrays.toString(this.ingredients));
         return("A pizza " + this.getName() + " possui " + this.getNumberOfIngredients() + " ingredientes:" + Arrays.toString(this.ingredients));
     }
     
@@ -84,7 +83,7 @@ public class Pizza {
     public void addIngredinte(Ingredient ingrediente){
         if(numberOfIngredients < MAX_INGREDIENTS){
             this.ingredients[numberOfIngredients] = ingrediente;
-            numberOfIngredients++;
+            this.numberOfIngredients++;
         }
         else{
             System.out.println("Ta cheia gordo!");
@@ -104,10 +103,19 @@ public class Pizza {
         this.ingredients[numberOfIngredients] = null;
         numberOfIngredients--;
     }
-
+    
+    
     @Override
     public String toString() {
-        return "Pizza{" + "MAX_INGREDIENTS=" + MAX_INGREDIENTS + ", id=" + id + ", name=" + name + ", description=" + description + ", ingredients=" + Arrays.toString(ingredients) + ", numberOfIngredients=" + numberOfIngredients + '}';
+        String s = "";
+        s+= "ID: " + this.getId() + "\n";
+        s+= "Nome: " + this.getName() + "\n";
+        s+= "Descrição: " + this.description + "\n";
+        s+= "Nº de ingredientes: " + this.getNumberOfIngredients() + "\n";
+        for(int i=0; i<this.numberOfIngredients; i++){
+            s+= ingredients[i].toString();
+        }
+        return s;
     }
     
     

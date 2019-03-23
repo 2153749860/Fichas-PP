@@ -5,8 +5,8 @@
  */
 package pp_fp06.PizzaRestaurant;
 
-import java.util.Arrays;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import pp_fp06.PizzaRestaurant.enums.IngOrigem;
 
 /**
@@ -23,8 +23,9 @@ public class Ementa {
      * valida atributo que determina se a ementa é valida ou nao
      */
     private final int MAX_PIZZAS = 10;
-    private Date dataInicio;
-    private Date dataFim;
+    //private Date dataInicio;
+    private LocalDateTime dataInicio;
+    private LocalDateTime dataFim;
     private Pizza[] pizzas;
     private int numberOfPizzas = 0;
     private boolean valida;
@@ -35,45 +36,85 @@ public class Ementa {
      * dataInicio é inicializada com a data de criação da ementa
      * A ementa não é valida por pre-definição
      */
-    public Ementa(Date dataFim) {
+    public Ementa(LocalDateTime dataFim) {
         this.dataFim = dataFim;
-        this.dataInicio =  new Date(System.currentTimeMillis());
+        this.dataInicio = this.dataInicio.now();
         this.pizzas = new Pizza[MAX_PIZZAS];
         this.valida = false;
     }
-
+    
+    /**
+     * 
+     * @return o vetor das pizzas
+     */
     public Pizza[] getPizzas() {
         return pizzas;
     }
-
+    
+    /**
+     * coloca o vetor de pizzas na ementa
+     * @param pizzas - vetor de pizzas
+     */
     public void setPizzas(Pizza[] pizzas) {
         this.pizzas = pizzas;
     }
-
+    
+    /**
+     * 
+     * @return o numero de pizzas
+     */
     public int getNumberOfPizzas() {
         return numberOfPizzas;
     }
-
+    
+    /**
+     * coloca o numero de pizzas na ementa
+     * @param numberOfPizzas - numero de pizzas
+     */
     public void setNumberOfPizzas(int numberOfPizzas) {
         this.numberOfPizzas = numberOfPizzas;
     }
-
-    public Date getDataInicio() {
-        return dataInicio;
+    
+    /**
+     * 
+     * @return uma string com a dataInicial da ementa
+     */
+    public String getDataInicio() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedDateTime = this.dataInicio.format(formatter);
+        return formattedDateTime;
     }
-
-    public void setDataInicio(Date dataInicio) {
+    
+    /**
+     * coloca a data inicial da ementa
+     * @param dataInicio - dataInicial da ementa
+     */
+    public void setDataInicio(LocalDateTime dataInicio) {
         this.dataInicio = dataInicio;
     }
-
-    public Date getDataFim() {
-        return dataFim;
+    
+    /**
+     * 
+     * @return uma string com a dataFinal da ementa
+     */
+    public String getDataFim() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedDateTime = this.dataFim.format(formatter);
+        return formattedDateTime;
     }
-
-    public void setDataFim(Date dataFim) {
+    
+    /**
+     * coloca a dataFinal da ementa
+     * @param dataFim - dat final da ementa
+     */
+    public void setDataFim(LocalDateTime dataFim) {
         this.dataFim = dataFim;
     }
-
+    
+    /**
+     * 
+     * @return se é válida ou não
+     */
     public boolean isValida() {
         return valida;
     }
@@ -81,11 +122,13 @@ public class Ementa {
     /**
      * Este metodo adiciona uma pizza à ementa
      * @param pizza pizza para adicionar à ementa
+     * verifica a validação da ementa
      */
     public void addPizza(Pizza pizza){
         if(this.numberOfPizzas < MAX_PIZZAS){
             this.pizzas[numberOfPizzas] = pizza;
             this.numberOfPizzas++;
+            this.validaEmenta();
         }
         else{
             System.out.println("ja nao cabe mais gordo!");
@@ -102,6 +145,7 @@ public class Ementa {
      * segundo for vai percorrer o vetor das pizzas da ementa e vai passar a pizza na posição j+1 para a posição j, até ao fim do vetor
      * a ultima posição do vetor passa a null
      * o numero de pizzas é decrementado
+     * verifica a validação da ementa
      */
     public void removePizza(int id){
         int pos = -1;
@@ -115,6 +159,7 @@ public class Ementa {
         }
         this.pizzas[this.numberOfPizzas] = null;
         this.numberOfPizzas--;
+        this.validaEmenta();
     }
     
     /**
@@ -138,9 +183,13 @@ public class Ementa {
             if(contAnimal == 0){
                 this.valida = true;
             }
+            else{
+                this.valida = false;
+            }
             contAnimal = 0;
         }
     }
+    
     
     /**
      * metodo toString() vai imprimir todos os dados da ementa na tela

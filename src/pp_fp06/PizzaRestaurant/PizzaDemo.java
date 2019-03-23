@@ -5,8 +5,10 @@
  */
 package pp_fp06.PizzaRestaurant;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.Month;
 import pp_fp06.PizzaRestaurant.enums.IngOrigem;
+import pp_fp06.PizzaRestaurant.enums.PizzaSize;
 
 /**
  *
@@ -19,25 +21,33 @@ public class PizzaDemo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //instancia dos ingredientes
+        //instancia dos ingredientes da pizza1
         Ingredient ingrediente1 = new Ingredient(1, "Massa", IngOrigem.Animal);
         Ingredient ingrediente2 = new Ingredient(2, "Tomate", IngOrigem.Vegetal);
         Ingredient ingrediente3 = new Ingredient(3, "Queijo", IngOrigem.Vegetal);
-        //vetor de ingredientes
-        Ingredient[] ingredientes1 = new Ingredient[]{ingrediente1, ingrediente2, ingrediente3};
         
-        //pizza 1
-        Pizza pizza1 = new Pizza(1, "Celeste", "Boa!");
-        //pizza 2
-        Pizza pizza2 = new Pizza(2, "Ananás", "Muito boa!");
+        //instancia dos ingredientes da pizza2
+        Ingredient ingrediente4 = new Ingredient(4, "Pimento", IngOrigem.Vegetal);
+        Ingredient ingrediente5 = new Ingredient(5, "Ananás", IngOrigem.Vegetal);
+        Ingredient ingrediente6 = new Ingredient(6, "Coentros", IngOrigem.Vegetal);
+        
+        //Instancia da pizza1
+        Pizza pizza1 = new Pizza(1, "Celeste", "Boa!", PizzaSize.BIG);
+        //Instancia da pizza2
+        Pizza pizza2 = new Pizza(2, "Havaiana", "Muito boa!", PizzaSize.MEDIUM);
         
         //adiciona ingredientes à pizza1
-        pizza1.addIngredinte(ingrediente2); 
-        pizza1.addIngredinte(ingrediente3); 
+        pizza1.addIngrediente(ingrediente1);
+        pizza1.addIngrediente(ingrediente2); 
+        pizza1.addIngrediente(ingrediente3); 
         //adiciona ingredientes à pizza2
-        pizza2.addIngredinte(ingrediente1);
+        pizza2.addIngrediente(ingrediente4);
+        pizza2.addIngrediente(ingrediente5);
+        pizza2.addIngrediente(ingrediente6);
         
-        //remove o ingrediente de ID 2 da pizza
+        System.out.println(pizza1.getPreco());
+        
+        //remove o ingrediente de ID 2 da pizza1
         pizza1.removeIngrediente(2); 
         //print da descrição e ingredientes da pizza1
         System.out.println(pizza1.getDescription()); 
@@ -48,13 +58,14 @@ public class PizzaDemo {
         //print da descrição e ingredientes da pizza2
         System.out.println(pizza2.getDescription());
         
-        //data final para ementa1
-        Date data1 = new Date(119, 2, 25);
+        //instancia da data dinal da ementa
+        LocalDateTime dataFinalEmenta = LocalDateTime.of(2019, Month.MARCH, 30, 11, 30);
         
         //Instancia da ementa1
-        Ementa ementa1 = new Ementa(data1);
+        Ementa ementa1 = new Ementa(dataFinalEmenta);
         
-        //adiciona uma pizza à ementa1
+        //adiciona as pizzas à ementa1
+        ementa1.addPizza(pizza1);
         ementa1.addPizza(pizza2);
         
         //verificar se a ementa1 é válida

@@ -50,6 +50,8 @@ public class Pizza {
         this.tamanho = tam;
         
     }*/
+    //ver
+    
     public Pizza(int id, String name, String description,PizzaSize tamanho) {
         numberOfIngredients = 0;
         this.id = id;
@@ -209,6 +211,7 @@ public class Pizza {
             }
         }
     }*/
+    //ver
     
     private void addPreco(){
         float pequeno = 3;
@@ -241,6 +244,7 @@ public class Pizza {
         for(int i=0; i<this.numberOfIngredients; i++){
             s+= ingredients[i].toString();
         }
+        s+="Preço: " + this.getPreco();
         return s;
     }
     

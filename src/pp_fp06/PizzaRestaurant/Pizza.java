@@ -42,6 +42,7 @@ public class Pizza {
      */
     /*
     public Pizza(int id, String name, String description, PizzaSize tam) {
+<<<<<<< HEAD
         numberOfIngredients = 0;
         this.id = id;
         this.name = name;
@@ -53,11 +54,25 @@ public class Pizza {
     //ver
     
     public Pizza(int id, String name, String description,PizzaSize tamanho) {
+=======
+>>>>>>> e541f93776986a331e3d250a10783a46839207fd
         numberOfIngredients = 0;
         this.id = id;
         this.name = name;
         this.description = description;
         this.ingredients = new Ingredient[MAX_INGREDIENTS];
+<<<<<<< HEAD
+=======
+        this.tamanho = tam;
+        
+    }*/
+    public Pizza(int id, String name, String description,PizzaSize tamanho) {
+        numberOfIngredients = 0;
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.ingredients = new Ingredient[MAX_INGREDIENTS];
+>>>>>>> e541f93776986a331e3d250a10783a46839207fd
         this.tamanho = tamanho;
         addPreco();
     }
@@ -211,7 +226,10 @@ public class Pizza {
             }
         }
     }*/
+<<<<<<< HEAD
     //ver
+=======
+>>>>>>> e541f93776986a331e3d250a10783a46839207fd
     
     private void addPreco(){
         float pequeno = 3;

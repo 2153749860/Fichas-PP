@@ -10,5 +10,8 @@ package pp_fp06.PizzaRestaurant.enums;
  * @author tiago
  */
 public enum IngOrigem {
+    /**
+     * a origem do ingrediente pode ser "Animal", "Vegetal" ou "Mineral"
+     */
     Animal, Vegetal, Mineral;
 }
